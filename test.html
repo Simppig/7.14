@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="box_bg">
+            <div class="box_head">
+                <div class="box_text" id="day" style="background-color: #00B262;">
+                    今日疯抢
+                </div>
+                <div class="box_text" id="less">
+                    量贩装
+                </div>
+            </div>
+            <div class="box_img" id="eat">
+                <a href="#">
+                    <img src="imgs/2.jpg">
+                </a>
+                <div class="onedisplay">
+                    <div class="textlist">
+                        <img src="imgs/1.png" alt="">
+                        <span>零食欢乐购</span>
+                        <div>
+                            <span class="textlist2">爆款直降</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="box_img" id="oil" style="display: none;">
+                <a href="#">
+                    <img src="imgs/3.jpg">
+                </a>
+                <div class="onedisplay">
+                    <div class="textlist">
+                        <img src="imgs/1.png" alt="">
+                        <span>爆款直降</span>
+                        <div>
+                            <span class="textlist2">粮油调味</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var title = document.querySelectorAll(".box_text");
+        var shops = document.querySelectorAll(".box_img");
+        // console.log(title);
+        // console.log(shops);
+
+        for (let i = 0; i < title.length; i++) {
+            title[i].onclick = function() {
+                for (var j = 0; j < title.length; j++) {
+                    title[j].style.background = 'rgb(241,241,241)';
+                    shops[j].style.display = "none";
+                }
+                title[i].style.background = "#00B262";
+                shops[i].style.display = "block";
+            }
+        }
+
+        var y = 0;
+        setInterval(() => {
+            if (y) {
+                title[0].style.background = "#00B262";
+                shops[0].style.display = "block";
+                title[1].style.background = 'rgb(241,241,241)';
+                shops[1].style.display = "none";
+                y = false;
+            } else {
+                title[1].style.background = "#00B262";
+                shops[1].style.display = "block";
+                title[0].style.background = 'rgb(241,241,241)';
+                shops[0].style.display = "none";
+                y = true
+            }
+        }, 3000);
+    </script>
+</body>
+
+</html>
